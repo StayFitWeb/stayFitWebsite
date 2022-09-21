@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact us</title>
+  <link rel="icon" href="/BootstrapWebsite/img/contact.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/mycss.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function sentDetails() {
+      document.getElementById("success").innerHTML = "Your contact details has been sent sucessfully. Someone will call you shortly Thank You for visiting our website🥰 Have a nice day❣️"
+    }
+    function validatation() {
+      var name = document.form.name.value
+      if (name.length == 0) {
+        document.getElementById("pName").innerHTML = "❗Name should not be empty"
+        document.form.name.focus()
+      }
+      var mail = document.form.mail.value
+      if (mail.indexOf("@") == -1 && mail.indexOf(".") == -1) {
+        document.getElementById("pMail").innerHTML = "❗Your entered email does not contain . symbol and @ symbol"
+        document.form.mail.focus()
+      }
+      else if (mail.indexOf("@") == -1) {
+        document.getElementById("pMail").innerHTML = "❗Your entered email does not contain @ symbol"
+        document.form.mail.focus()
+      }
+      else if (mail.indexOf(".") == -1) {
+        document.getElementById("pMail").innerHTML = "❗Your entered email does not contain . symbol"
+        document.form.mail.focus()
+      }
+      var phone = document.form.phone.value
+      if (phone.length == 0) {
+        document.getElementById("pPhone").innerHTML = "❗Phone number should not be empty"
+        document.form.phone.focus()
+      }
+        if (phone.length > 10) {
+          document.getElementById("pPhone").innerHTML = "❗Phone number should not be greater than 10"
+          document.form.phone.focus()
+        }
+        if (phone.length < 10) {
+          document.getElementById("pPhone").innerHTML = "❗Phone number should not be less than 10"
+          document.form.phone.focus()
+        }
+
+        if(name.length != 0 && mail.indexOf("@") != -1 && mail.indexOf(".") != -1 && phone.length == 10){
+          sentDetails();
+        }
+    }
+  </script>
+
+  <style>
+    #pName{
+      text-align: end;
+      font-size: 13px;
+      color: red;
+    }
+    #pMail{
+      text-align: end;
+      font-size: 13px;
+      color: red;
+    }
+    #pPhone{
+      text-align: end;
+      font-size: 13px;
+      color: red;
+    }
+    .wrapper {
+      max-width: 600px;
+      height: 100vh;
+      margin: auto;
+      display: flex;
+      align-items: center
+    }
+
+    #wizard {
+      min-height: 570px;
+      width: 600px;
+      background: #fff;
+      margin-right: 60px;
+      padding: 107px 75px 65px;
+      margin-top: 20px;
+      margin-bottom: 20px
+    }
+
+    .form-row {
+      margin-bottom: 24px
+    }
+
+    .form-control {
+      height: 42px;
+      border: 1px solid #e6e6e6;
+      background: none;
+      width: 100%;
+      padding: 0 18px
+    }
+
+    .form-control::-webkit-input-placeholder {
+      color: #999;
+      font-size: 13px
+    }
+
+    #success {
+      color: rgb(80, 218, 80);
+    }
+
+    @media (max-width: 1500px) {
+      .wrapper {
+        height: auto
+      }
+    }
+
+    @media (max-width: 1199px) {
+      .wrapper {
+        height: 100vh
+      }
+
+      #wizard {
+        margin-right: 40px;
+        min-height: 829px;
+        padding-left: 60px;
+        padding-right: 60px
+      }
+    }
+
+    @media (max-width: 991px) {
+      .wrapper {
+        justify-content: center
+      }
+
+      .wrapper .image-holder {
+        display: none
+      }
+
+      .wrapper form {
+        width: 60%
+      }
+
+      #wizard {
+        margin-right: 0;
+        padding-left: 40px;
+        padding-right: 40px
+      }
+    }
+
+    @media (max-width: 767px) {
+      .wrapper {
+        height: auto;
+        display: block
+      }
+
+      .wrapper .image-holder {
+        width: 100%;
+        display: block
+      }
+
+      .wrapper form {
+        width: 100%
+      }
+
+      #wizard {
+        min-height: unset;
+        padding: 70px 20px 40px
+      }
+
+      .form-row.form-group {
+        display: block
+      }
+
+      .form-row.form-group .form-holder {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 24px
+      }
+    }
+  </style>
+
+</head>
+
+<body background="/BootstrapWebsite/img/background2.jpg" style="height: 726px; width: 100%;">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+  <div class="wrapper">
+    <form action="" name="form">
+      <div id="wizard">
+        <h4></h4>
+        <section>
+          <center><img src="/BootstrapWebsite/img/3.png" height="60px"></center><br>
+          <div class="form-row"> <input type="text" name="name" class="form-control" placeholder="Name"> <p id="pName"></p></div>
+          <div class="form-row"> <input type="text" name="mail" class="form-control" placeholder="Email" > <p id="pMail"></p> </div>
+          <div class="form-row"> <input type="text" class="form-control" name="phone" placeholder="Phone number"> <p id="pPhone"></p> </div>
+          <div class="form-row"> <input type="text" class="form-control" placeholder="Street address"> </div>
+        </section>
+        <h4></h4>
+        <section>
+          <div class="form-row"> <input type="text" class="form-control" placeholder="country"> </div>
+          <div class="form-row"> <input type="text" class="form-control" placeholder="zip code"> </div>
+          <div class="form-row" style="margin-bottom: 18px"> <textarea name="" id="" class="form-control"
+              placeholder="Any message📩" style="height: 108px"></textarea> </div>
+        </section>
+        <center>
+          <button type="button" class="btn btn-primary" onclick="validatation()">Submit</button>
+        </center><br>
+        <section>
+          <p id="success">
+          </p>
+        </section>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
